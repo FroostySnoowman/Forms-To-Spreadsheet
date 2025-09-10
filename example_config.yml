@@ -1,0 +1,11 @@
+Google:
+  GOOGLE_SERVICE_ACCOUNT_FILE: "service_account.json"
+
+Forms:
+  - GOOGLE_FORM_ID: ""
+    ExportFormat: "spreadsheet"
+    GOOGLE_SPREADSHEET_ID: ""
+    SHEET_NAME: "" # Optional, defaults to "Sheet1"
+
+MappingOverrides:
+    "220834d7": "Age"
