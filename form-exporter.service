@@ -1,0 +1,17 @@
+# nano /etc/systemd/system/form-export.service
+# systemctl restart form-exporter
+[Unit]
+Description=Google Forms Exporter Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/club/venv/bin/python /club/export.py
+WorkingDirectory=/club
+Restart=always
+RestartSec=5
+User=root
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
