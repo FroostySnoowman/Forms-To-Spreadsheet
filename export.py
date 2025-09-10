@@ -190,6 +190,9 @@ async def export_form(form_config):
     if mapping_overrides:
         df.rename(columns=mapping_overrides, inplace=True)
 
+    df.replace("", "N/A", inplace=True)
+    df.fillna("N/A", inplace=True)
+
     print("Response columns:", df.columns.tolist())
 
     if export_format == "spreadsheet":
