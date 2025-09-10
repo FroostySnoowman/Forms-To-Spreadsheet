@@ -220,20 +220,20 @@ async def initial_export():
     for form_config in config["Forms"]:
         await export_form(form_config)
 
-async def run_every_hour():
+async def run_every_5_minutes():
     while True:
         try:
-            print("Running hourly export...")
+            print("Running 5-minute export...")
             for form_config in config["Forms"]:
                 await export_form(form_config)
-            print("Sleeping for 1 hour...")
-            await asyncio.sleep(3600)
+            print("Sleeping for 5 minutes...")
+            await asyncio.sleep(300)
         except Exception as e:
             print(f"Error in scheduled task: {e}")
 
 async def main():
     await initial_export()
-    await run_every_hour()
+    await run_every_5_minutes()
 
 if __name__ == '__main__':
     asyncio.run(main())
