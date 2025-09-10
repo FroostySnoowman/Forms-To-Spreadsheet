@@ -182,6 +182,9 @@ async def export_form(form_config):
         print("No data to export.")
         return
     
+    if "createTime" in df.columns:
+        df.sort_values(by="createTime", ascending=True, inplace=True)
+    
     mapping_overrides = config.get("MappingOverrides", {})
     if mapping_overrides:
         df.rename(columns=mapping_overrides, inplace=True)
