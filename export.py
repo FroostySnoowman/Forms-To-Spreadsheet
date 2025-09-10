@@ -43,7 +43,8 @@ def flatten_response(response):
         if "textAnswers" in answer:
             text_answers = answer["textAnswers"].get("answers", [])
             if text_answers:
-                text = text_answers[0].get("value", "")
+                values = [ans.get("value", "") for ans in text_answers]
+                text = ", ".join(values)
         else:
             text = str(answer)
 
